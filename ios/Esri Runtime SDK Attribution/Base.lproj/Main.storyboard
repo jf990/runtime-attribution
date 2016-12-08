@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Esri_Runtime_SDK_Attribution" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="10k-ne-3cJ" customClass="AGSMapView">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gi0-Qa-7ft" userLabel="Attribution View">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="uxp-eg-0CM"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="gi0-Qa-7ft" secondAttribute="trailing" constant="70" id="Hnn-ON-zrP"/>
+                                    <constraint firstAttribute="bottom" secondItem="gi0-Qa-7ft" secondAttribute="bottom" id="J9Y-Ar-Rj5"/>
+                                    <constraint firstItem="gi0-Qa-7ft" firstAttribute="leading" secondItem="10k-ne-3cJ" secondAttribute="leading" id="kGe-c4-uaD"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="10k-ne-3cJ" secondAttribute="trailing" id="25q-XD-fvO"/>
+                            <constraint firstItem="10k-ne-3cJ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="8QX-W3-YyW"/>
+                            <constraint firstItem="10k-ne-3cJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="C9A-ze-p8U"/>
+                            <constraint firstItem="10k-ne-3cJ" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="DcZ-WS-oZy"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="attributionView" destination="gi0-Qa-7ft" id="xYv-Hx-TZJ"/>
+                        <outlet property="mapView" destination="10k-ne-3cJ" id="UKg-UP-2SA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
+        </scene>
+    </scenes>
+</document>
