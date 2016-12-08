@@ -27,3 +27,11 @@
 *.exe
 *.out
 *.app
+
+# VS stuff
+bin/
+obj/
+net/arcgis-runtime-attribution/bin/
+net/arcgis-runtime-attribution/obj/
+net/packages/
+net/.vs/
