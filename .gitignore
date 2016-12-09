@@ -35,7 +35,8 @@ net/arcgis-runtime-attribution/bin/
 net/arcgis-runtime-attribution/obj/
 net/packages/
 net/.vs/
-qt/build-Esri_Runtime_SDK_Attribution-Desktop_Qt_5_7_0_clang_64bit-Debug
+qt/build-*
+qt/build-*/
 android/.idea/
 android/app/build/
 android/app/libs/
