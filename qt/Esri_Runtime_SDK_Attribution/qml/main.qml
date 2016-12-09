@@ -14,33 +14,74 @@
 import QtQuick 2.6
 import QtQuick.Controls 1.4
 import Esri.ArcGISRuntime 100.0
+import Esri.ArcGISExtras 1.1
 
 ApplicationWindow {
     id: appWindow
-    width: 800
-    height: 600
+    width: 768
+    height: 1024
     title: "Esri_Runtime_SDK_Attribution"
 
-    // add a mapView component
+    property real startLatitude: 40.7576
+    property real startLongitude: -73.9857
+    property int startScale: 120000
+    property real scaleFactor: System.displayScaleFactor
+
     MapView {
         id: mapView
         anchors.fill: parent
-        wrapAroundMode: Enums.WrapAroundModeDisabled
+        wrapAroundMode: Enums.WrapAroundModeEnabledWhenSupported
 
-        // add a map to the mapview
         Map {
             id: map
-            BasemapTopographic {}
+            BasemapNationalGeographic {}
             initialViewpoint: viewpoint
+            onLoadStatusChanged: {
+                if (loadStatus == Enums.LoadStatusLoaded) {
+                    var layers = map.basemap.baseLayers
+                    var attributionText = ""
+                    if (layers != null) {
+                        var error = layers.forEach(function(layer, index, array) {
+                            attributionText += (attributionText == "" ? "" : "; ") + layer.attribution;
+                        });
+                        if (error) {
+                            console.log(error);
+                        }
+                        attribution.text = attributionText
+                    }
+                }
+            }
         }
     }
+
+    Rectangle {
+        id: attributionBar
+        anchors {
+            left: parent.left
+            right: parent.right
+            bottom: parent.bottom
+            rightMargin: 120 * scaleFactor
+        }
+        height: 18 * scaleFactor
+        color: "transparent"
+
+        Text {
+            id: attribution
+            anchors.fill: parent
+            text: ""
+            font.pixelSize: 10 * scaleFactor
+            color: "#323232"
+            clip: true
+        }
+    }
+
     ViewpointCenter {
         id: viewpoint
         center: Point {
-            x: -73.9857
-            y: 40.7576
+            x: startLongitude
+            y: startLatitude
             spatialReference: SpatialReference { wkid: 4326 }
         }
-        targetScale: 120000
+        targetScale: startScale
     }
 }
