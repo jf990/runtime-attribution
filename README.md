@@ -10,7 +10,7 @@ With version 100.0, the ArcGIS Runtime SDKs do not offer any API control over th
 
 The purpose of this project is to demonstrate how to get the attribution for all layers currently assigned to the base map used by the map object. The attribution is displayed on the bottom of the map view.
 
-This project has project setups and source code for 4 SDK platforms: Android, iOS, .NET, and Qt.
+This project has project setups and source code for 5 SDK platforms: Android, iOS, .NET, Qt, and Xamarin. This project also demonstrates the power of the Runtime API: how the code is very similar on all 5 platforms.
 
 ## Android
 
