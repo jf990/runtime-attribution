@@ -22,7 +22,7 @@ You could use this same source code for a Java project if you are targeting a de
 
 This project is written in Swift. Follow the [ArcGIS Runtime SDK for iOS](https://developers.arcgis.com/ios/latest/swift/guide/install.htm) install and setup instructions. This project installs the SDK manually and does not use the Cocoapods setup. After installation you should make sure you have a working setup by building the [Develop your first map app](https://developers.arcgis.com/ios/latest/swift/guide/develop-your-first-map-app.htm).
 
-You could use this same source code for a macOS project if you are targeting a desktop environment. First get your macOS development environment setup by following [Install the SDK](https://developers.arcgis.com/macos/latest/swift/guide/install-and-setup.htm). Then copy the source from this project's `ViewController.swift` into your Java project.
+You could use this same source code for a macOS project if you are targeting a desktop environment. First get your macOS development environment setup by following [Install the SDK](https://developers.arcgis.com/macos/latest/swift/guide/install-and-setup.htm). Then copy the source from this project's `ViewController.swift` into your Swift project.
 
 ## .NET
 
