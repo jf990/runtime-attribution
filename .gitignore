@@ -28,6 +28,9 @@
 *.out
 *.app
 
+# tmp files
+xamarin/packages/
+
 # IDE crapola
 xcuserdata/
 DerivedData/
