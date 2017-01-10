@@ -33,6 +33,7 @@ xamarin/packages/
 
 # IDE crapola
 xcuserdata/
+*.xcuserstate
 DerivedData/
 *.pbxuser
 !default.pbxuser
