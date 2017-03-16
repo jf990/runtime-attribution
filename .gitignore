@@ -46,6 +46,7 @@ DerivedData/
 *.moved-aside
 *.xccheckout
 *.xcscmblueprint
+*.pro.user
 
 # Build artifacts
 build/
@@ -60,3 +61,4 @@ qt/build-*/
 android/.idea/
 android/app/build/
 android/app/libs/
+xamarin/.vs/
