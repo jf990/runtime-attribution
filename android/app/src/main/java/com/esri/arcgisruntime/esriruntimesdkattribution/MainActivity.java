@@ -9,6 +9,8 @@ import android.util.TypedValue;
 import android.view.Gravity;
 import android.widget.TextView;
 
+import com.esri.arcgisruntime.geometry.Point;
+import com.esri.arcgisruntime.geometry.SpatialReference;
 import com.esri.arcgisruntime.layers.Layer;
 import com.esri.arcgisruntime.loadable.LoadStatus;
 import com.esri.arcgisruntime.mapping.ArcGISMap;
@@ -101,9 +103,8 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Perform all the necessary steps to setup, initialize, and load the map for the first time.
      */
-    private void setupMap() {
+    private void configureInitialMapView() {
 
-        mMapView = (MapView) findViewById(R.id.mapView);
         if (mMapView != null) {
             mMap = new ArcGISMap(mBasemapType, mStartLatitude, mStartLongitude, mStartLevelOfDetail);
             mMap.addDoneLoadingListener(new Runnable() {
@@ -121,22 +122,38 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private void setupMap(MapView mapView) {
+        if (mapView != null) {
+            ArcGISMap map = new ArcGISMap(Basemap.createImageryWithLabels());
+            SpatialReference spatialReference = SpatialReference.create(102100);
+            Point centerPoint = new Point(-8262476.527867007, 5007669.474234587, spatialReference);
+            double scale = 4513.988705;
+            mapView.setMap(map);
+            mapView.setViewpointCenterAsync(centerPoint, scale);
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setupMap();
+        mMapView = (MapView) findViewById(R.id.mapView);
+        setupMap(mMapView);
     }
 
     @Override
     protected void onPause(){
-        mMapView.pause();
+        if (mMapView != null) {
+            mMapView.pause();
+        }
         super.onPause();
     }
 
     @Override
     protected void onResume(){
         super.onResume();
-        mMapView.resume();
+        if (mMapView != null) {
+            mMapView.resume();
+        }
     }
 }
