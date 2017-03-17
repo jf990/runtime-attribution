@@ -36,8 +36,8 @@ class ViewController: UIViewController {
      * and concatenating all attributions. This is the quick-and-dumb method that does not consider
      * extent and scale.
      */
-    func getBasemapAttribution(basemap:AGSMap) -> String {
-        let baseLayerList = basemap.basemap.baseLayers as Any as! [AGSLayer]
+    func getBasemapAttribution(for map:AGSMap) -> String {
+        let baseLayerList = map.basemap.baseLayers as Any as! [AGSLayer]
         var attribution: String = ""
         var layerAttribution: String = ""
         
@@ -55,7 +55,7 @@ class ViewController: UIViewController {
      * Update the map attribution displayed based on the current map layer and extent configuration.
      */
     func updateAttribution() {
-        self.attributionView.text = self.getBasemapAttribution(basemap: self.map)
+        self.attributionView.text = self.getBasemapAttribution(for: self.map)
     }
     
     /**
@@ -66,7 +66,7 @@ class ViewController: UIViewController {
         //Setup a completion handler until the map loaded then show the attribution label
         self.map.load { (error) -> Void in
             if (error != nil) {
-                print(error)
+                print(error!)
             } else {
                 self.updateAttribution();
             }
